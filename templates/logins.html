@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  M.D.B Treinamentos
+{% endblock %}
+
+{% block styles %}
+  <style>
+    /* Estilo dos botões */
+    .button {
+      background-color: #4CAF50; /* Cor de fundo */
+      border: none; /* Sem borda */
+      color: white; /* Cor do texto */
+      padding: 15px 32px; /* Espaçamento interno */
+      text-align: center; /* Alinhamento de texto */
+      text-decoration: none; /* Sem sublinhado */
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 25px; /* Borda arredondada */
+    }
+
+    /* Estilo do botão "Login RH" */
+    .rh {
+      background-color: #f44336;
+    }
+
+    /* Estilo do botão "Login Professor" */
+    .professor {
+      background-color: #008CBA;
+    }
+
+    /* Estilo do botão "Login Colaborador" */
+    .colaborador {
+      background-color: #555555;
+    }
+
+    /* Estilo do botão "Criar conta" */
+    .criar-conta {
+      background-color: #f44336;
+    }
+
+    /* Estilo do elemento pai do bloco de conteúdo */
+    .content-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="content-container">
+    <h2>Escolha o tipo de login:</h2>
+    <button class="button rh">Login RH</button>
+    <button class="button professor">Login Professor</button>
+    <button class="button colaborador">Login Colaborador</button>
+    <br>
+    <button class="button criar-conta">Criar conta</button>
+  </div>
+{% endblock %}
