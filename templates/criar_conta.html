@@ -13,14 +13,25 @@
             <h2 class="text-center">Criar conta</h2>
           </div>
           <div class="card-body">
-            <form class="form">
+            <form class="form" onsubmit="return validateForm()">
               <div class="form-group">
-                <label for="username">Nome de usuário:</label>
-                <input type="text" class="form-control" id="username" placeholder="Insira seu nome de usuário">
+                <label for="email">E-mail:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control half-width" id="email" placeholder="Insira o corpo do e-mail" oninput="checkForAtSymbol(this)">
+                  <div class="input-group-append">
+                    <span class="input-group-text">@mdiasbranco.com.br</span>
+                  </div>
+                </div>
+                <small class="form-text text-danger" id="email-error" style="display:none">O e-mail já contém "@mdiasbranco.com.br". Não é necessário incluir "@".</small>
               </div>
               <div class="form-group">
                 <label for="password">Senha:</label>
                 <input type="password" class="form-control" id="password" placeholder="Insira sua senha">
+              </div>
+              <div class="form-group">
+                <label for="password-confirm">Confirme a senha:</label>
+                <input type="password" class="form-control" id="password-confirm" placeholder="Confirme sua senha">
+                <small class="form-text text-danger" id="password-error" style="display:none">As senhas não são iguais ou algum campo está vazio.</small>
               </div>
               <div class="form-group">
                 <label for="account-type">Tipo de conta:</label><br>
@@ -36,10 +47,6 @@
                   <input class="form-check-input" type="checkbox" id="account-type-professor" value="professor" onclick="disableOtherCheckboxes(this)">
                   <label class="form-check-label" for="account-type-professor">Professor</label>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="login" value="login" onclick="disableOtherCheckboxes(this)">
-                  <label class="form-check-label" for="login">Colaborador/s/Login</label>
-                </div>
               </div>
               <button type="submit" class="btn btn-primary btn-block">Criar conta</button>
             </form>
@@ -48,7 +55,6 @@
       </div>
     </div>
   </div>
-
   <script>
     function disableOtherCheckboxes(checkbox) {
       if (checkbox.checked) {
@@ -65,5 +71,40 @@
         }
       }
     }
+
+    function checkForAtSymbol(input) {
+      var emailError = document.getElementById('email-error');
+      if (input.value.includes('@')) {
+        emailError.style.display = 'block';
+      } else {
+        emailError.style.display = 'none';
+      }
+    }
+
+    function validateForm() {
+      var password = document.getElementById('password');
+      var passwordConfirm = document.getElementById('password-confirm');
+      var passwordError = document.getElementById('password-error');
+      var emailError = document.getElementById('email-error');
+
+      if (password.value === '' || passwordConfirm.value === '' || password.value !== passwordConfirm.value) {
+        passwordError.style.display = 'block';
+        return false;
+      } else {
+        passwordError.style.display = 'none';
+      }
+
+      if (document.getElementById('email').value.includes('@')) {
+        emailError.style.display = 'block';
+        return false;
+      } else {
+        emailError.style.display = 'none';
+      }
+
+      return true;
+    }
   </script>
 {% endblock %}
+
+
+
