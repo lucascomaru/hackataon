@@ -130,4 +130,59 @@ body {
       width: 50% !important;
     }
 
+/* Estilo dos botões das páginas  */
+.professor-content-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.left-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+.left-sidebar button {
+  width: 200px;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  padding: 15px 32px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.left-sidebar button:hover {
+  background-color: #3e8e41;
+}
+
+.sair {
+  background-color: #f44336;
+}
+
+.adicionar-treinamento {
+  background-color: #4CAF50;
+}
+
+.editar-treinamento {
+  background-color: #4CAF50;
+}
+
+.adicionar-colaborador {
+  background-color: #4CAF50;
+}
+
+
+
+
+
 
