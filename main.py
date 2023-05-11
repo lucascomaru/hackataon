@@ -19,5 +19,9 @@ def colaborador():
 def professor():
     return render_template('professor.html')
 
+@app.route('/adicionar_treinamento')
+def adicionar_treinamento():
+    return render_template('adicionar_treinamento.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
