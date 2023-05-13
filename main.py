@@ -23,5 +23,19 @@ def professor():
 def adicionar_treinamento():
     return render_template('adicionar_treinamento.html')
 
+@app.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html')
+@app.route('/lista_funcionarios')
+def lista_funcionarios():
+    funcionarios = [
+        {'nome': 'João', 'matricula': '12345', 'setor': 'RH', 'cargo': 'Analista', 'treinamentos': 'Treinamento A'},
+        {'nome': 'Maria', 'matricula': '67890', 'setor': 'Financeiro', 'cargo': 'Gerente',
+         'treinamentos': 'Treinamento B'},
+
+    ]
+
+    return render_template('lista_funcionarios.html', funcionarios=funcionarios)
+
 if __name__ == '__main__':
     app.run(debug=True)

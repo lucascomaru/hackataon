@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="/cadastrar" method="POST">
+        <h2>Cadastro de Funcionários</h2>
+
+        <label for="nome">Nomes:</label>
+        <input type="text" name="nome" id="nome" required>
+
+        <label for="matricula">RE (Matrícula):</label>
+        <input type="text" name="matricula" id="matricula" required>
+
+        <label for="setor">Setor:</label>
+        <div id="setorContainer">
+            <button type="button" id="escolherSetor" onclick="mostrarSetores()">Escolha seu setor</button>
+            <div id="setorDropdown" style="display: none;">
+                <select name="setor" id="setorSelecionado" onchange="mostrarCargos()">
+                    <option value="">Selecione um setor</option>
+                    <option value="producao">Produção</option>
+                    <option value="logistica">Logística</option>
+                    <option value="armazenamento">Armazenamento</option>
+                </select>
+            </div>
+        </div>
+
+        <label for="cargo">Cargo:</label>
+        <div id="cargoContainer" style="display: none;">
+            <select name="cargo" id="cargoSelecionado">
+                <option value="">Selecione um cargo</option>
+            </select>
+        </div>
+
+        <label for="treinamentos">Treinamentos:</label>
+        <div id="treinamentosContainer" style="display: none;">
+            <p>Clique nos treinamentos desejados:</p>
+            <div id="treinamentosCheckbox"></div>
+        </div>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+
+<script>
+    function mostrarSetores() {
+        var setorDropdown = document.getElementById("setorDropdown");
+        setorDropdown.style.display = "block";
+        document.getElementById("escolherSetor").disabled = true;
+    }
+
+    function mostrarCargos() {
+        var setorSelecionado = document.getElementById("setorSelecionado").value;
+        var cargoContainer = document.getElementById("cargoContainer");
+        var treinamentosContainer = document.getElementById("treinamentosContainer");
+        var treinamentosCheckbox = document.getElementById("treinamentosCheckbox");
+
+        if (setorSelecionado === "") {
+            cargoContainer.style.display = "none";
+            treinamentosContainer.style.display = "none";
+            return;
+        }
+
+        var cargos = {
+            producao: ["Auxiliar de Produção"],
+            logistica: ["Conferente"],
+            armazenamento: ["Estoquista"]
+        };
+
+        var treinamentos = {
+            producao: ["Treinamento de Produção 1", "Treinamento de Produção 2"],
+            logistica: ["Treinamento de Logística 1", "Treinamento de Logística 2"],
+            armazenamento: ["Treinamento de Armazenamento 1", "Treinamento de Armazenamento 2"]
+        };
+
+        var cargoSelecionado = document.getElementById("cargoSelecionado");
+
+        // Limpar os cargos anteriores
+        cargoSelecionado.innerHTML = "";
+
+        // Adicionar os cargos do setor selecionado
+        cargos[setorSelecionado].forEach(function (cargo) {
+            var option = document.createElement("option");
+            option.value = cargo;
+            option.text = cargo;
+            cargoSelecionado.appendChild(option);
+        });
+
+        cargoContainer.style.display = "block";
+
+        // Exibir treinamentos correspondentes ao setor selecionado
+        treinamentosCheckbox.innerHTML = "";
+        treinamentos[setorSelecionado].forEach(function (treinamento) {
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.name = "treinamentos";
+            checkbox.value = treinamento;
+
+            var label = document.createElement("label");
+            label.innerHTML = treinamento;
+
+            var br = document.createElement("br");
+
+            treinamentosCheckbox.appendChild(checkbox);
+            treinamentosCheckbox.appendChild(label);
+            treinamentosCheckbox.appendChild(br);
+        });
+
+        treinamentosContainer.style.display = "block";
+    }
+</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Lista de Funcionários</h2>
+
+    <div class="container">
+        <div class="column">
+            <h3>Nome</h3>
+            {% for funcionario in funcionarios %}
+            <p>{{ funcionario.nome }}</p>
+            {% endfor %}
+        </div>
+        <div class="separator"></div>
+        <div class="column">
+            <h3>RE </h3>
+            {% for funcionario in funcionarios %}
+            <p>{{ funcionario.matricula }}</p>
+            {% endfor %}
+        </div>
+        <div class="separator"></div>
+        <div class="column">
+            <h3>Setor</h3>
+            {% for funcionario in funcionarios %}
+            <p>{{ funcionario.setor }}</p>
+            {% endfor %}
+        </div>
+        <div class="separator"></div>
+        <div class="column">
+            <h3>Cargo</h3>
+            {% for funcionario in funcionarios %}
+            <p>{{ funcionario.cargo }}</p>
+            {% endfor %}
+        </div>
+        <div class="separator"></div>
+        <div class="column">
+            <h3>Treinamentos</h3>
+            {% for funcionario in funcionarios %}
+            <p>{{ funcionario.treinamentos }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
