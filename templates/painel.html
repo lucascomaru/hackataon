@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <div class="sidebar">
+        <img src="caminho/para/sua/foto.jpg" alt="Foto">
+        <button class="button" onclick="destacarBotao(this)">Painel</button>
+        <button class="button" onclick="destacarBotao(this)">Treinamentos</button>
+        <button class="button" onclick="destacarBotao(this)">Cadastro</button>
+        <button class="button" onclick="destacarBotao(this)">Sessão Download</button>
+    </div>
+    <div class="content">
+
+    </div>
+    <script>
+        function destacarBotao(botao) {
+    var botoes = document.getElementsByClassName('button');
+    for (var i = 0; i < botoes.length; i++) {
+        botoes[i].classList.remove('highlight');
+    }
+    botao.classList.add('highlight');
+}
+    </script>
+</body>
+
+{% endblock %}
