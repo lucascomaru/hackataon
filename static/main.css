@@ -47,3 +47,52 @@
     padding: 20px;
     border-radius:
 
+
+/* Referente ao que aparece no botão de cadastro*/
+
+.cadastro-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.cadastro-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cadastro-form label {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+}
+
+.cadastro-form .input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.cadastro-form input[type="text"],
+.cadastro-form select {
+    width: 100%;
+    padding: 5px;
+}
+
+.cadastro-form .form-group::before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
