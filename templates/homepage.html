@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<body>
+    <div class="sidebar">
+        <img src="{{ url_for('static', filename='mdb.jpg') }}" alt="Foto">
+        <button class="button" onclick="exibirConteudo('painel', this)">Painel</button>
+        <button class="button" onclick="exibirConteudo('treinamentos', this)">Treinamentos</button>
+        <button class="button" onclick="exibirConteudo('cadastro', this)">Cadastro</button>
+        <button class="button" onclick="exibirConteudo('sessao-download', this)">Sessão Download</button>
+    </div>
+    <div class="content" id="conteudo">
+        <div class="conteudo-centralizado">
+            <h2>Conteúdo do Painel</h2>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+{% endblock %}
+

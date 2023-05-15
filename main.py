@@ -9,8 +9,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mdbtreinamentos.db'
 database = SQLAlchemy(app)
 
 @app.route('/') #Atribui uma nova funcionalidade para a função abaixo, faz a função abaixo aparecer no site
-def painel():
-    return render_template('painel.html')
+def homepage():
+    return render_template('homepage.html')
 
 @app.route('/treinamentos')
 def treinamentos():
@@ -19,7 +19,9 @@ def treinamentos():
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
-
+@app.route('/painel')
+def painel():
+    return render_template('painel.html')
 @app.route('/sessao-download')
 def sessao_download():
     return render_template('sessao-download.html')
