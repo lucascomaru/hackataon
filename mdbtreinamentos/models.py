@@ -1,4 +1,5 @@
-from main import database
+from mdbtreinamentos import database
+
 
 class Treinamento(database.Model):
     id = database.Column(database.Integer, primary_key=True)
