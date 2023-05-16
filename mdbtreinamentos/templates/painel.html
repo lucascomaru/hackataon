@@ -1,5 +1,39 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<body>
+    <div class="sidebar">
 
+    </div>
+    <div class="content" id="conteudo">
+        <div class="conteudo-centralizado">
+            <h2>Painel</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Professor</th>
+                        <th>Setor</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for treinamento in treinamentos %}
+                        <tr>
+                            <td>{{ treinamento.nome }}</td>
+                            <td>{{ treinamento.professor }}</td>
+                            <td>{{ treinamento.setor }}</td>
+                            <td>{{ treinamento.data }}</td>
+                            <td>{{ treinamento.hora }}</td>
+                            <td>{{ treinamento.tipo }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
 {% endblock %}
+

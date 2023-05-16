@@ -11,48 +11,53 @@
     </div>
     <div class="content" id="conteudo">
         <div class="conteudo-centralizado">
-            <h2>Conteúdo do Cadastro</h2>
-            <form action="/cadastro" method="POST" class="cadastro-form">
+            <h2>Cadastro</h2>
+            <form action="{{ url_for('cadastro') }}" method="POST">
+                {{ form.csrf_token }}
                 <div class="form-group">
-                    <label for="nome">Nome:</label>
+                    {{ form.nome.label }}
                     <div class="input-wrapper">
-                        <input type="text" name="nome" id="nome" required>
+                        {{ form.nome() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="re">RE:</label>
+                    {{ form.re.label }}
                     <div class="input-wrapper">
-                        <input type="text" name="re" id="re" required>
+                        {{ form.re() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="setor">Setor:</label>
+                    {{ form.confirmacao_re.label }}
                     <div class="input-wrapper">
-                        <select name="setor" id="setor" required>
-                            <option value="">Selecione um setor</option>
-                            <option value="Produção">Produção</option>
-                            <option value="Logística">Logística</option>
-                            <option value="Armazenamento">Armazenamento</option>
-                        </select>
+                        {{ form.confirmacao_re() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="cargo">Cargo:</label>
+                    {{ form.setor.label }}
                     <div class="input-wrapper">
-                        <select name="cargo" id="cargo" required>
-                            <option value="">Selecione um cargo</option>
-                            <option value="Auxiliar de Produção">Auxiliar de Produção</option>
-                            <option value="Conferente">Conferente</option>
-                            <option value="Estoquista">Estoquista</option>
-                        </select>
+                        {{ form.setor() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Cadastrar">
+                    {{ form.cargo.label }}
+                    <div class="input-wrapper">
+                        {{ form.cargo() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form.treinamento.label }}
+                    <div class="input-wrapper">
+                        {{ form.treinamento() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form.submit() }}
                 </div>
             </form>
         </div>

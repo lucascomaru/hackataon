@@ -6,7 +6,6 @@ function exibirConteudo(area, botao) {
             .then(response => response.text())
             .then(html => {
                 conteudo.innerHTML = html;
-                botao.classList.add('highlight');
             })
             .catch(error => console.log(error));
     } else if (area === 'treinamentos') {
@@ -14,7 +13,6 @@ function exibirConteudo(area, botao) {
             .then(response => response.text())
             .then(html => {
                 conteudo.innerHTML = html;
-                botao.classList.add('highlight');
             })
             .catch(error => console.log(error));
     } else if (area === 'cadastro') {
@@ -22,7 +20,6 @@ function exibirConteudo(area, botao) {
             .then(response => response.text())
             .then(html => {
                 conteudo.innerHTML = html;
-                botao.classList.add('highlight');
             })
             .catch(error => console.log(error));
     } else if (area === 'sessao-download') {
@@ -30,12 +27,12 @@ function exibirConteudo(area, botao) {
             .then(response => response.text())
             .then(html => {
                 conteudo.innerHTML = html;
-                botao.classList.add('highlight');
             })
             .catch(error => console.log(error));
     }
 
-    var botoes = document.getElementsByClassName('button');
+    var sidebar = document.getElementsByClassName('sidebar')[0];
+    var botoes = sidebar.getElementsByTagName('button');
     for (var i = 0; i < botoes.length; i++) {
         botoes[i].classList.remove('highlight');
     }
