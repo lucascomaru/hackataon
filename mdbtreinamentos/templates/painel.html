@@ -2,9 +2,6 @@
 
 {% block body %}
 <body>
-    <div class="sidebar">
-
-    </div>
     <div class="content" id="conteudo">
         <div class="conteudo-centralizado">
             <h2>Painel</h2>
@@ -14,6 +11,7 @@
                         <th>Nome</th>
                         <th>Professor</th>
                         <th>Setor</th>
+                        <th>Sala</th>
                         <th>Data</th>
                         <th>Hora</th>
                         <th>Tipo</th>
@@ -21,10 +19,11 @@
                 </thead>
                 <tbody>
                     {% for treinamento in treinamentos %}
-                        <tr>
+                        <tr onclick="location.href='{{ url_for('detalhes_treinamento', treinamento_id=treinamento.id) }}';">
                             <td>{{ treinamento.nome }}</td>
                             <td>{{ treinamento.professor }}</td>
                             <td>{{ treinamento.setor }}</td>
+                            <td>{{ treinamento.sala }}</td>
                             <td>{{ treinamento.data }}</td>
                             <td>{{ treinamento.hora }}</td>
                             <td>{{ treinamento.tipo }}</td>
@@ -34,6 +33,6 @@
             </table>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 {% endblock %}
-

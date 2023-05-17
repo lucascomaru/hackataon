@@ -2,19 +2,49 @@
 
 {% block body %}
 <body>
-    <div class="sidebar">
-        <img src="{{ url_for('static', filename='mdb.jpg') }}" alt="Foto">
-        <button class="button" onclick="exibirConteudo('painel', this)">Painel</button>
-        <button class="button" onclick="exibirConteudo('treinamentos', this)">Treinamentos</button>
-        <button class="button" onclick="exibirConteudo('cadastro', this)">Cadastro</button>
-        <button class="button" onclick="exibirConteudo('sessao-download', this)">Sessão Download</button>
+    <div class="conteudo-centralizado">
+        <h2>Sessão de Download</h2>
+        <form method="POST" action="{{ url_for('download_planilha') }}">
+            <div class="form-group">
+                <label for="treinamento_id">Treinamento:</label>
+                <select class="form-control" id="treinamento_id" name="treinamento_id">
+                    {% for treinamento in treinamentos %}
+                        <option value="{{ treinamento.id }}">{{ treinamento.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Download</button>
+        </form>
     </div>
-    <div class="content" id="conteudo">
-        <div class="conteudo-centralizado">
-            <h2>Conteúdo da Sessão de Download</h2>
-        </div>
-    </div>
+    <script>
+        document.getElementById("download-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio do formulário
 
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
+            var treinamentoId = document.getElementById("treinamento_id").value;
+
+            // Faz uma requisição AJAX para a rota de download_planilha
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "{{ url_for('download_planilha') }}", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.responseType = "blob";
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var blob = xhr.response;
+                    var url = window.URL.createObjectURL(blob);
+                    var a = document.createElement("a");
+                    a.href = url;
+                    a.download = "planilha.xlsx";
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                }
+            };
+
+            var formData = new FormData();
+            formData.append("treinamento_id", treinamentoId);
+
+            xhr.send(formData);
+        });
+    </script>
 </body>
 {% endblock %}
