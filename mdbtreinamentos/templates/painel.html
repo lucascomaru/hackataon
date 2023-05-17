@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
                     {% for treinamento in treinamentos %}
-                        <tr onclick="location.href='{{ url_for('detalhes_treinamento', treinamento_id=treinamento.id) }}';">
+                        <tr>
                             <td>{{ treinamento.nome }}</td>
                             <td>{{ treinamento.professor }}</td>
                             <td>{{ treinamento.setor }}</td>

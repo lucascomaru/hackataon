@@ -5,7 +5,7 @@
     <div class="content" id="conteudo">
         <div class="conteudo-centralizado">
             <h2>Conteúdo dos Treinamentos</h2>
-            <form action="{{ url_for('treinamentos') }}" method="POST">
+            <form action="{{ url_for('treinamentos') }}" method="POST" class="cadastro-form">
                 {{ form.csrf_token }}
 
                 {% with messages = get_flashed_messages() %}
@@ -19,49 +19,49 @@
                 {% endwith %}
 
                 <div class="form-group">
-                    {{ form.nome_treinamento.label }}
+                    <label for="nome_treinamento">Nome do Treinamento</label>
                     <div class="input-wrapper">
                         {{ form.nome_treinamento() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    {{ form.nome_professor.label }}
+                    <label for="nome_professor">Nome do Professor</label>
                     <div class="input-wrapper">
                         {{ form.nome_professor() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    {{ form.setor_treinamento.label }}
+                    <label for="setor_treinamento">Setor do Treinamento</label>
                     <div class="input-wrapper">
                         {{ form.setor_treinamento() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    {{ form.data_treinamento.label }}
+                    <label for="data_treinamento">Data do Treinamento</label>
                     <div class="input-wrapper">
                         {{ form.data_treinamento() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    {{ form.hora_treinamento.label }}
+                    <label for="hora_treinamento">Hora do Treinamento</label>
                     <div class="input-wrapper">
                         {{ form.hora_treinamento() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    {{ form.tipo_treinamento.label }}
+                    <label for="tipo_treinamento">Tipo de Treinamento</label>
                     <div class="input-wrapper">
                         {{ form.tipo_treinamento() }}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    {{ form.sala_treinamento.label }}
+                    <label for="sala_treinamento">Sala do Treinamento</label>
                     <div class="input-wrapper">
                         {{ form.sala_treinamento() }}
                     </div>

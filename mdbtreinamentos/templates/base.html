@@ -9,6 +9,15 @@
     {% block head %}
     {% endblock %}
 
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='fundo2.jpg') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
     {% block body %}

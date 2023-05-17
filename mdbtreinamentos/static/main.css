@@ -1,3 +1,4 @@
+/* Estilos para a o menu dos botões da lateral */
 .sidebar {
     position: fixed;
     top: 0;
@@ -36,6 +37,7 @@
     color: navy;
 }
 
+/* Estilos para o conteúdo centralizado */
 .conteudo-centralizado {
     text-align: center;
     margin-top: 80px;
@@ -45,28 +47,31 @@
     max-width: 600px;
     background-color: #f1f1f1;
     padding: 20px;
-    border-radius:
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-
-/* Referente ao que aparece no botão de cadastro*/
-
+/* Estilos para o formulário de cadastro */
 .cadastro-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.cadastro-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .cadastro-form .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    margin-bottom: 20px;
 }
 
 .cadastro-form label {
-    align-self: flex-start;
-    display: flex;
-    align-items: center;
+    font-weight: bold;
 }
 
 .cadastro-form .input-wrapper {
@@ -77,7 +82,16 @@
 .cadastro-form input[type="text"],
 .cadastro-form select {
     width: 100%;
-    padding: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.cadastro-form input[type="text"]:focus,
+.cadastro-form select:focus {
+    outline: none;
+    border-color: #336699;
 }
 
 .cadastro-form .form-group::before {
@@ -87,6 +101,20 @@
     height: 100%;
     background-color: #ccc;
     margin-right: 10px;
+}
+
+.cadastro-form .btn-primary {
+    background-color: #336699;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cadastro-form .btn-primary:hover {
+    background-color: #285f87;
 }
 
 /* Estilos para as mensagens flash */
@@ -124,8 +152,37 @@
 }
 
 
+.welcome {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.welcome h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
 
+.welcome p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
 
+.welcome .button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #336699;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
 
-
+.welcome .button:hover {
+    background-color: #285f87;
+}
