@@ -73,9 +73,9 @@ def cadastro():
 
         if linha.empty:
             flash('RE não encontrado no registro de funcionários.', 'danger')
-            return redirect(url_for('cadastro'))
+            return redirect(url_for('homepage'))
 
-        # Obter os valores da linha
+
         nome = linha['NOME'].values[0]
         setor = linha['SETOR'].values[0]
         cargo = linha['CARGO'].values[0]
