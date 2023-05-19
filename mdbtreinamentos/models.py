@@ -6,15 +6,17 @@ class Pessoa(database.Model):
     re = database.Column(database.String(100))
     setor = database.Column(database.String(100))
     cargo = database.Column(database.String(100))
+    numero_pessoal = database.Column(database.String(5))
     cadastros = database.relationship('Cadastro', backref='pessoa', lazy=True)
 
 class Treinamento(database.Model):
     id = database.Column(database.Integer, primary_key=True)
     nome = database.Column(database.String(100))
+    descricao = database.Column(database.Text)  # novo campo
     professor = database.Column(database.String(100))
     setor = database.Column(database.String(100))
     sala = database.Column(database.String(100))
-    data = database.Column(database.String(100))
+    data = database.Column(database.String(100))  # novo campo
     hora = database.Column(database.String(100))
     tipo = database.Column(database.String(100))
     cadastros = database.relationship('Cadastro', backref='treinamento', lazy=True)
