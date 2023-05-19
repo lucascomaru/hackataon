@@ -52,7 +52,6 @@ def obter_dados_excel():
     caminho_arquivo = os.path.join(app.root_path, 'static', 'planilhadadoss.xlsx')
     df = pd.read_excel(caminho_arquivo)
     df['RE'] = df['RE'].astype(str)
-    print(df.columns)
     return df
 
 @app.route('/cadastro', methods=['GET', 'POST'])
@@ -62,7 +61,6 @@ def cadastro():
 
     if form.validate_on_submit():
         re = form.re.data
-        print(re)
         treinamento_id = form.treinamento.data
 
 
@@ -120,7 +118,7 @@ def cadastro():
 #
 #     df.to_excel(caminho_arquivo, index=False)
 #
-#     print(f"Arquivo Excel salvo em: {caminho_arquivo}")
+
 
 @app.route('/sessao-download', methods=['GET'])
 def sessao_download():
@@ -166,7 +164,7 @@ def atualizar_excel_frequencia(id_treinamento):
     caminho_arquivo = os.path.join(pasta_destino, nome_arquivo)
     df.to_excel(caminho_arquivo, index=False)
 
-    print(f"Arquivo Excel salvo em: {caminho_arquivo}")
+
 
     return df, nome_arquivo
 
