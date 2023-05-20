@@ -1,4 +1,9 @@
 # hackataon
-Projeto do Hacka ta on - M. Dias Branco - Unifor
+
+Projeto que concorreu ao Hacka ta on em parceria com a M. Dias Branco e Unifor
+
+Projeto usando Python, HTML, Javascript, CSS, Pandas e Flask.
+
+https://mdiasbrancotreinamentos.herokuapp.com/
 
 
